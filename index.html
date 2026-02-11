@@ -28,39 +28,42 @@
         overflow: hidden;
       }
 
-      /* Heart background */
+      /* Scalable heart background */
       .heart-background {
-        --heart-color: red; /* default color, will be overridden by JS */
+        --heart-size: 150px; /* Change this to scale the heart */
+        --lobe-offset: calc(var(--heart-size) * 0.5); /* Half the size for positioning lobes */
+
+        --heart-color: red; /* Default, will be overwritten by JS */
+
         position: fixed;
         top: 50%;
         left: 50%;
-        width: 100px;
-        height: 90px;
+        width: var(--heart-size);
+        height: var(--heart-size);
         background-color: var(--heart-color);
         transform: translate(-50%, -50%) rotate(-45deg);
         z-index: 0;
         animation: pulse 1.5s ease-in-out infinite;
       }
 
-      /* Top lobes of the heart */
       .heart-background::before,
       .heart-background::after {
         content: "";
         position: absolute;
-        width: 100px;
-        height: 90px;
+        width: var(--heart-size);
+        height: var(--heart-size);
         background-color: var(--heart-color);
         border-radius: 50%;
       }
 
       .heart-background::before {
-        top: -50px;
+        top: calc(-1 * var(--lobe-offset));
         left: 0;
       }
 
       .heart-background::after {
         top: 0;
-        left: 50px;
+        left: var(--lobe-offset);
       }
 
       @keyframes pulse {
@@ -131,3 +134,4 @@
     </script>
   </body>
 </html>
+
