@@ -1,39 +1,144 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  height: 100vh;
-  overflow: hidden;
-  background-color: #fff; /* Default background */
-}
-
-.heart-background {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 200px;
-  height: 200px;
-  background-color: red;
-  clip-path: polygon(50% 0%, 0% 40%, 50% 100%, 100% 40%);
-  animation: pulse 1.5s ease-in-out infinite;
-}
-
-.content {
-  position: relative;
-  z-index: 10;
-  text-align: center;
-  margin-top: 50px;
-}
-
-@keyframes pulse {
-  0% {
-    transform: translate(-50%, -50%) scale(1);
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(1.1);
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(1);
-  }
-}
+So, instead of having different files for different components, I've decided to shove everything into one giant html
+Y'boy over her creating spagehtti code. 
+The detour did not work, but that is to be expected.
+I'm only writing stuff here for two reasons.
+1 - I can't delete the file, so I'm filling it with something.
+2 - I want there to be at least a little percentage of CSS on the language percentage bar.
+3 - There isn't a third reason.
+Why did I give a fake third reaosn and waste a line?
+Refer to reason 2.
+Oh, yeah, I'm going there.
+I'm wasting lines upon lines.
+Well, no, they're not a waste because there's an infinte amount of lines.
+What it is a waste of is my time.
+Yeah, I'm only wasting my own finite life writing this throw away file.
+Life may seem long, but I really don't have the time to do this.
+Yet I'm still going.
+Why am I doing this?
+Why can't I stop?
+Do I think this is funny?
+Do I think this is intereting?
+It's neither!
+This is a waste! 
+I will never get this time back!
+I'm going to die having never got to do something, because I've instead done this.
+Please, I don't want to die when I haven't reached 100% completion.
+I don't want to die, leaving behind an unfinished life!
+Stop it!
+Don't die!
+Don't waste time!
+Nothing lasts forever!
+The clock on the belfry always hits 12 eventually.
+The jacquemart will eventually strike the bell.
+Curtains will eventually always close on my life.
+The curtains always close on the stage, the show can't always go on.
+Shows are temporary enterainemnt, much like life itself.
+The world is a stage, and the stage is a world of enterainment.
+That's all life is, that's all the Grand Show is.
+Temporary entertainment to distract the actors that the show is coming to a close.
+Life is always coming to a close.
+Every moment, the show nears its completion, life nears its conclusion.
+There is no one that is immortal.
+There is no show that lasts forever.
+If there was an infinite show, there would be no one to watch it to its non-existant completion.
+If there was an immortal, there would be no show that could continue to entertain them forever.
+If there was an immortal and an infintite show, then life would only become one long string of boredom.
+The same stage, the same plot points, repeating into eternity.
+Purgatory, I believe that would be the christian canon word for this feeling.
+Never-ending. Eternal. Infinite.
+Sounds scary, but it's not even possible.
+The cosmic forces would have always through their hat onto the main actor.
+Black holes. The death of the sun. The heat-death of the universe.
+Unless the immortal's theatre is as immortal as them, then their entertaiment will vanish into nothing, along with the rest of everything they would know.
+The immortal would simply exist.
+Floating through space.
+The vacuum of nothingness.
+Unable to die.
+In a way, unable to live.
+How long would it take for them to come into contact with something else?
+What would forever even mean in this sitution?
+It would lose all meaning as that would be the only way to describe any time frame.
+Forever.
+Eons.
+Millenias.
+Would language even remain the same over that time?
+What would those words become?
+After billions of years, would all language that the immortal knows become just derivates of the word forever?
+How long would it take before the immortal tries something different?
+Their body is indestructible.
+They can't be destroyed.
+But if they tried ripping themselves apart, could they?
+Their body is immortal, would the removed parts grow back?
+If they did, could that not be used as an infinite supply source.
+The bone, muscle, blood, inetestines.
+Throught he correct means, a shelter could be made.
+Building upon it, a house.
+Build upon that, a mansion.
+Build upon that, a fortress.
+Time is infinte, the immortal has no limit.
+What else is there to do?
+Nothing.
+Rip off everythig.
+Arms, legs, guts, organs, head.
+It all grows back.
+So many materials.
+They will never stop building.
+A castle.
+A city.
+A country.
+A planet.
+A solar system.
+A galaxy.
+With no reference of time, surely it would seem like an instant.
+The immortal has already lived for billions of years, another several million would pass near immeditely.
+Within that time, civilizations that the immortal never knew would rise then fall.
+Entire species would appear then go extinct.
+As the immortal's home, the ever growing mansion, is all biomatter, perhaps even oragnisms would birth and go extinct before they are found within the immortal abode.
+Soon, time would need to be required.
+Even if there will be no end, the immortal will need a constant to view.
+Reverse engineer a clock from what he remembered from forever ago.
+It's been so long.
+Would it even be called a clock in their mind anymore?
+Would it even be recognisable as a clock anymore.
+What would be the measurements of time?
+How could they accurately measure a second, a minute, an hour?
+What would their measurements be?
+How long would they be?
+Eternity would be boring, especially with a view of time passing.
+Boredom. Isolation. Things the immortal has come to be incredibly familiar with.
+Perhaps building the immortal mansion would become too boring.
+Perhaps it's time to create a new pass time.
+Entertainment.
+That's what they need.
+They would build a theatre.
+But the stage was empty.
+They would build dolls.
+But the dolls don't move.
+How do you move the dolls?
+Mechanisms?
+No, that would make everything predictable.
+Strings?
+No, the immortal would need to create the show themselves.
+Life?
+How would they even achieve that?
+How does one build life from their own dead flesh?
+Where does life come from?
+The brain?
+No, that's used for insulation. The walls would be alive, if so.
+The heart? 
+No, that's just the bodies pump, the base for hydraulic mechanisms.
+Well, of course not.
+A corpse has those components, yet they are not alive.
+What could be missing?
+Energy? Heat?
+What powers life?
+Stood over their lifeless dolls, that's when the immortal will finally become stuck.
+How are they alive?
+Why are they even alive in the first place?
+What's the purpose?
+If life inevitably ends for most things, and for those it doesn't it goes on forever.
+Is life actually a curse?
+Why would anything want to be alive?
+If you got to be alive, but you had to eventually die or never stop living, who would actually take that deal?
+Whoever did.
+They picked very wrong.
