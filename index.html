@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compliment o'clock</title>
+    <title>flert</title>
     <link rel="icon" type="image/x-icon" href="/thirst.ico">
     <style>
       @font-face {
@@ -19,12 +19,32 @@
         display: flex;
         justify-content: center;
         align-items: center;
-
+        position: relative; /* So the heart is positioned correctly */
         font-family: "SPEED AND POWER", sans-serif;
         font-size: 5rem;
         text-align: center;
         color: #000000;
         transition: background-color 0.5s ease;
+      }
+
+      /* Heart shape as a background */
+      body::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        clip-path: polygon(50% 0%, 0% 35%, 50% 100%, 100% 35%);
+        z-index: -1; /* Make sure the heart stays in the background */
+        box-shadow: 0 0 60px rgba(0, 0, 0, 0.2); /* Optional for some glow effect */
+      }
+
+      /* Adjust the body content to make sure it's visible above the heart */
+      #compliment {
+        z-index: 1; /* Ensure the text is in front */
       }
     </style>
   </head>
@@ -35,13 +55,12 @@
 
     <script>
       const happyColours = [
-		"#E300ED", // hot pink
-		"#FF002D", // sexy red
-		"#FF006F", // kinky salmon
-		"#B200DE", // devious purple
-		"#FF1C78", // slutty pink
-		"#6300BD" // straight up whore purple
-				
+        "#E300ED", // hot pink
+        "#FF002D", // sexy red
+        "#FF006F", // kinky salmon
+        "#B200DE", // devious purple
+        "#FF1C78", // slutty pink
+        "#6300BD"  // straight up whore purple
       ];
 
       const randomColour =
