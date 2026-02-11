@@ -32,33 +32,36 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        width: 300px;
-        height: 300px;
-        background-color: #e74c3c; /* Red color for the heart */
-        transform: rotate(45deg);
+        width: 200px;
+        height: 200px;
         transform: translate(-50%, -50%); /* Center the shape */
-        opacity: 1; /* Light opacity for background effect */
-        z-index: -1; /* Place the heart shape behind content */
+        z-index: -1; /* Make sure the heart stays behind the content */
+        opacity: 0.3; /* Light opacity for background effect */
       }
 
       .heart-shape:before,
       .heart-shape:after {
         content: "";
         position: absolute;
-        width: 100px;
-        height: 100px;
-        background-color: #e74c3c;
+        width: 200px;
+        height: 200px;
+        background-color: #FF0000; /* Default red color */
         border-radius: 50%;
       }
 
       .heart-shape:before {
-        left: 50px;
+        left: 0;
         top: 0;
       }
 
       .heart-shape:after {
-        left: 0;
-        top: 50px;
+        left: 100px;
+        top: 0;
+      }
+
+      /* Random Heart Color */
+      .heart-shape.random-color {
+        background-color: var(--heart-color);
       }
     </style>
   </head>
@@ -78,10 +81,25 @@
         "#6300BD"  // straight up whore purple
       ];
 
+      const heartColours = [
+        "#FF0000", // Red
+        "#FF6347", // Tomato
+        "#FF1493", // DeepPink
+        "#FF4500", // OrangeRed
+        "#FFD700"  // Gold
+      ];
+
       const randomColour =
         happyColours[Math.floor(Math.random() * happyColours.length)];
 
+      const randomHeartColour =
+        heartColours[Math.floor(Math.random() * heartColours.length)];
+
       document.body.style.backgroundColor = randomColour;
+
+      // Set the random heart color using CSS variable
+      const heartShape = document.querySelector('.heart-shape');
+      document.documentElement.style.setProperty('--heart-color', randomHeartColour);
 
       fetch("feeling good.txt")
         .then(response => response.text())
