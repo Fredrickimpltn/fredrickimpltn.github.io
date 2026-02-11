@@ -141,6 +141,7 @@
           const randomCompliment = compliments[randomIndex];
 
           document.getElementById("compliment").textContent = randomCompliment;
+          fitText();
         })
         .catch(error => {
           document.getElementById("compliment").textContent = "Nice ass";
