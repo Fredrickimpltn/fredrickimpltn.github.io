@@ -32,8 +32,8 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        width: 400px; /* Increased width */
-        height: 400px; /* Increased height */
+        width: 400px; /* Size of heart */
+        height: 400px; /* Size of heart */
         transform: translate(-50%, -50%); /* Center the shape */
         z-index: -1; /* Make sure the heart stays behind the content */
         opacity: 0.3; /* Light opacity for background effect */
@@ -44,8 +44,8 @@
       .heart-shape:after {
         content: "";
         position: absolute;
-        width: 200px; /* Each circle size */
-        height: 200px; /* Each circle size */
+        width: 200px; /* Circle size */
+        height: 200px; /* Circle size */
         background-color: #FF0000; /* Default red color */
         border-radius: 50%;
         top: 0;
@@ -76,6 +76,13 @@
       /* Random Heart Color */
       .heart-shape.random-color {
         background-color: var(--heart-color);
+      }
+
+      /* Compliment text style */
+      #compliment {
+        z-index: 1; /* Ensure text is above the heart */
+        color: #000000; /* Make sure text is visible */
+        font-size: 2rem; /* Smaller font size for compliments */
       }
     </style>
   </head>
@@ -121,11 +128,11 @@
 
       document.documentElement.style.setProperty('--heart-color', randomHeartColour);
 
-      // Change the heart color for the whole heart, including the bottom triangle
+      // Apply color to the circles and the triangle part
       heartShape.style.backgroundColor = randomHeartColour;
       bottomPart.style.backgroundColor = randomHeartColour;
 
-      // Apply color to the circles
+      // Apply color to the circles (they should now change color)
       leftCircle.style.backgroundColor = randomHeartColour;
       rightCircle.style.backgroundColor = randomHeartColour;
 
