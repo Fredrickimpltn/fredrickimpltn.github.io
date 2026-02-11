@@ -30,7 +30,7 @@
 
       /* Scalable heart background */
       .heart-background {
-        --heart-size: 150px; /* Change this to scale the heart */
+        --heart-size: 300px; /* Change this to scale the heart */
         --lobe-offset: calc(var(--heart-size) * 0.5); /* Half the size for positioning lobes */
 
         --heart-color: red; /* Default, will be overwritten by JS */
@@ -96,16 +96,25 @@
     <script>
       const happyColours = [
         "#E300ED", // hot pink
-        "#FF002D", // red
-        "#FF006F", // salmon
-        "#B200DE", // purple
-        "#FF1C78", // pink
-        "#6300BD"  // dark purple
+        "#FF002D", // sexy red
+        "#FF006F", // kinky salmon
+        "#B200DE", // devious purple
+        "#FF1C78", // bitchy pink
+        "#6300BD"  // flirty purple
+      ];
+
+      const lustyColours = [
+        "#5C000", // dirty red
+        "29005C", // naughty purple
+        "34004A", // down bad purple
+        "4A0040", // orgasmic pink
+        "4A0029", // slutty pink
+        "5E0040", // straight up whore pink
       ];
 
       // Random background color
       const randomColour =
-        happyColours[Math.floor(Math.random() * happyColours.length)];
+        lustyColours[Math.floor(Math.random() * lustyColours.length)];
       document.body.style.backgroundColor = randomColour;
 
       // Random heart color
