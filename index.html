@@ -27,13 +27,13 @@
         position: relative; /* Allow positioning of heart shape */
       }
 
-      /* Heart Shape in the background */
+      /* Heart Shape in the background (Bigger size) */
       .heart-shape {
         position: absolute;
         top: 50%;
         left: 50%;
-        width: 200px;
-        height: 200px;
+        width: 400px; /* Increased width */
+        height: 400px; /* Increased height */
         transform: translate(-50%, -50%); /* Center the shape */
         z-index: -1; /* Make sure the heart stays behind the content */
         opacity: 0.3; /* Light opacity for background effect */
@@ -43,8 +43,8 @@
       .heart-shape:after {
         content: "";
         position: absolute;
-        width: 200px;
-        height: 200px;
+        width: 400px; /* Increased width */
+        height: 400px; /* Increased height */
         background-color: #FF0000; /* Default red color */
         border-radius: 50%;
       }
@@ -55,7 +55,7 @@
       }
 
       .heart-shape:after {
-        left: 100px;
+        left: 200px; /* Adjusted to align with increased size */
         top: 0;
       }
 
@@ -64,8 +64,8 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        width: 200px;
-        height: 200px;
+        width: 400px; /* Increased width */
+        height: 400px; /* Increased height */
         background-color: #FF0000;
         transform: translate(-50%, -50%) rotate(45deg);
         z-index: -2; /* Ensure the triangle is at the bottom */
