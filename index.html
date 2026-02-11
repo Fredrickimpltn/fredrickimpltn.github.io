@@ -1,121 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flert</title>
-    <link rel="icon" type="image/x-icon" href="/thirst.ico">
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: sans-serif;
-            font-size: 2rem;
-            text-align: center;
-            color: #000;
-            background-color: #fff;
-            position: relative;
-        }
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>flert</title>
+		<link rel="icon" type="image/x-icon" href="/thirst.ico">
+		<style>
+			@font-face {
+				font-family: "SPEED AND POWER";
+				src: url("fonts/TuslavDemo-Regular.woff2") format("woff2");
+				font-weight: normal;
+				font-style: normal;
+			}
 
-        /* Heart Shape (Background) */
-        .heart {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 200px;
-            height: 200px;
-            transform: translate(-50%, -50%); /* Center it */
-        }
+			body {
+				margin: 0;
+				height: 100svh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
 
-        /* Top Left Circle */
-        .heart:before {
-            content: "";
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            background-color: red;
-            border-radius: 50%;
-            top: 0;
-            left: 0;
-        }
+				font-family: "SPEED AND POWER", sans-serif;
+				font-size: 5rem; 
+				text-align: center;
+				color: #000000;
+				transition: background-color 0.5s ease;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="compliment">
+			Loading…
+		</div> 
+		
+		<script>
+			const happyColours = [
+				"#E300ED", // hot pink
+				"#FF002D", // sexy red
+				"#FF006F", // kinky salmon
+				"#B200DE", // devious purple
+				"#FF1C78", // slutty pink
+				"#6300BD" // straight up whore purple
+			];
 
-        /* Top Right Circle */
-        .heart:after {
-            content: "";
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            background-color: red;
-            border-radius: 50%;
-            top: 0;
-            left: 100px;
-        }
+			const randomColour =
+				happyColours[Math.floor(Math.random() * happyColours.length)];
+	
+			document.body.style.backgroundColor = randomColour;
 
-        /* Bottom Triangle (Diamond Shape) */
-        .heart .bottom {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 200px;
-            height: 200px;
-            background-color: red;
-            transform: translate(-50%, -50%) rotate(45deg); /* Rotate to form a diamond */
-            z-index: -1;
-        }
-
-        /* Text (Compliment) */
-        #compliment {
-            position: relative;
-            z-index: 1; /* Make sure it stays above the heart */
-            font-size: 1.5rem;
-        }
-
-    </style>
-</head>
-<body>
-
-    <div class="heart">
-        <div class="bottom"></div> <!-- Bottom part of the heart -->
-    </div>
-
-    <div id="compliment">Loading...</div>
-
-    <script>
-        // Colors for the heart
-        const heartColors = [
-            "#FF0000", // Red
-            "#FF6347", // Tomato
-            "#FF1493", // DeepPink
-            "#FF4500", // OrangeRed
-            "#FFD700"  // Gold
-        ];
-
-        // Choose a random color for the heart
-        const randomHeartColor = heartColors[Math.floor(Math.random() * heartColors.length)];
-
-        // Apply the random color to the heart elements
-        document.querySelector(".heart:before").style.backgroundColor = randomHeartColor;
-        document.querySelector(".heart:after").style.backgroundColor = randomHeartColor;
-        document.querySelector(".heart .bottom").style.backgroundColor = randomHeartColor;
-
-        // Fetch compliments (mocking this here for simplicity)
-        const compliments = [
-            "You are amazing!",
-            "You're incredible!",
-            "Looking great today!",
-            "Keep being awesome!",
-            "You're one of a kind!"
-        ];
-
-        // Select a random compliment
-        const randomCompliment = compliments[Math.floor(Math.random() * compliments.length)];
-
-        // Update the text content with a random compliment
-        document.getElementById("compliment").textContent = randomCompliment;
-    </script>
-
-</body>
-</html>
+			fetch("feeling good.txt")
+				.then(response = response.text())
+				.then(text => {
+					const compliments = text
+						.split("\n")
+						.map(line => line.trim())
+						.filter(line => line.length > 0);
+                    
+					const randomIndex = Math.floor(Math.random() * compliments.length);
+					const randomCompliment = compliments[randomIndex];
+                    
+					document.getElementById("compliment").textContent = randomCompliment;
+				})
+				.catch(error = {
+						document.getElementById("compliment").textContent =
+						    "Nice ass";
+                        console.error(error);
+				});
+			</script>
+		</body>
+	</html>
