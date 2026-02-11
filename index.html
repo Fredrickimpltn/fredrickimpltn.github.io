@@ -1,71 +1,72 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>flert</title>
-		<link rel="icon" type="image/x-icon" href="/thirst.ico">
-		<style>
-			@font-face {
-				font-family: "SPEED AND POWER";
-				src: url("fonts/TuslavDemo-Regular.woff2") format("woff2");
-				font-weight: normal;
-				font-style: normal;
-			}
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compliment o'clock</title>
+    <link rel="icon" type="image/x-icon" href="/thirst.ico">
+    <style>
+      @font-face {
+        font-family: "SPEED AND POWER";
+        src: url("fonts/TuslavDemo-Regular.woff2") format("woff2");
+        font-weight: normal;
+        font-style: normal;
+      }
 
-			body {
-				margin: 0;
-				height: 100svh;
-				display: flex;
-				justify-content: center;
-				align-items: center;
+      body {
+        margin: 0;
+        height: 100svh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-				font-family: "SPEED AND POWER", sans-serif;
-				font-size: 5rem; 
-				text-align: center;
-				color: #000000;
-				transition: background-color 0.5s ease;
-			}
-		</style>
-	</head>
-	<body>
-		<div id="compliment">
-			Loading…
-		</div> 
-		
-		<script>
-			const happyColours = [
-				"#E300ED", // hot pink
-				"#FF002D", // sexy red
-				"#FF006F", // kinky salmon
-				"#B200DE", // devious purple
-				"#FF1C78", // slutty pink
-				"#6300BD" // straight up whore purple
-			];
+        font-family: "SPEED AND POWER", sans-serif;
+        font-size: 5rem;
+        text-align: center;
+        color: #000000;
+        transition: background-color 0.5s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="compliment">
+      Loading…
+    </div>
 
-			const randomColour =
-				happyColours[Math.floor(Math.random() * happyColours.length)];
-	
-			document.body.style.backgroundColor = randomColour;
+    <script>
+      const happyColours = [
+		"#E300ED", // hot pink
+		"#FF002D", // sexy red
+		"#FF006F", // kinky salmon
+		"#B200DE", // devious purple
+		"#FF1C78", // slutty pink
+		"#6300BD" // straight up whore purple
+				
+      ];
 
-			fetch("feeling good.txt")
-				.then(response = response.text())
-				.then(text => {
-					const compliments = text
-						.split("\n")
-						.map(line => line.trim())
-						.filter(line => line.length > 0);
-                    
-					const randomIndex = Math.floor(Math.random() * compliments.length);
-					const randomCompliment = compliments[randomIndex];
-                    
-					document.getElementById("compliment").textContent = randomCompliment;
-				})
-				.catch(error = {
-					document.getElementById("compliment").textContent =
-						"Nice ass";
-                    console.error(error);
-			});
-		</script>
-	</body>
+      const randomColour =
+        happyColours[Math.floor(Math.random() * happyColours.length)];
+
+      document.body.style.backgroundColor = randomColour;
+
+      fetch("feeling good.txt")
+        .then(response => response.text())
+        .then(text => {
+          const compliments = text
+            .split("\n")
+            .map(line => line.trim())
+            .filter(line => line.length > 0);
+
+          const randomIndex = Math.floor(Math.random() * compliments.length);
+          const randomCompliment = compliments[randomIndex];
+
+          document.getElementById("compliment").textContent = randomCompliment;
+        })
+        .catch(error => {
+          document.getElementById("compliment").textContent =
+            "Nice ass";
+          console.error(error);
+        });
+    </script>
+  </body>
 </html>
