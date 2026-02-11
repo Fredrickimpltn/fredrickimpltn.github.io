@@ -59,6 +59,18 @@
         top: 0;
       }
 
+      /* Creating the bottom triangle part of the heart */
+      .heart-shape .bottom {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 200px;
+        height: 200px;
+        background-color: #FF0000;
+        transform: translate(-50%, -50%) rotate(45deg);
+        z-index: -2; /* Ensure the triangle is at the bottom */
+      }
+
       /* Random Heart Color */
       .heart-shape.random-color {
         background-color: var(--heart-color);
@@ -66,7 +78,9 @@
     </style>
   </head>
   <body>
-    <div class="heart-shape"></div> <!-- Heart shape in the background -->
+    <div class="heart-shape">
+      <div class="bottom"></div> <!-- Bottom part of the heart -->
+    </div> <!-- Heart shape in the background -->
     <div id="compliment">
       Loading…
     </div>
@@ -99,7 +113,12 @@
 
       // Set the random heart color using CSS variable
       const heartShape = document.querySelector('.heart-shape');
+      const bottomPart = document.querySelector('.bottom');
       document.documentElement.style.setProperty('--heart-color', randomHeartColour);
+
+      // Change the heart color for the whole heart, including the bottom triangle
+      heartShape.style.backgroundColor = randomHeartColour;
+      bottomPart.style.backgroundColor = randomHeartColour;
 
       fetch("feeling good.txt")
         .then(response => response.text())
