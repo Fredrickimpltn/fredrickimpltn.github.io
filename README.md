@@ -1,2 +1,2 @@
 # fredrickimpltn.github.io
-Dumb compliments
+Top tier pick up lines
