@@ -28,15 +28,14 @@
         overflow: hidden;
       }
 
-      /* Scalable heart background */
       .heart-background {
-        --heart-size: 300px; /* Change this to scale the heart */
-        --lobe-offset: calc(var(--heart-size) * 0.5); /* Half the size for positioning lobes */
+        --heart-size: 300px; 
+        --lobe-offset: calc(var(--heart-size) * 0.5); 
 
-        --heart-color: red; /* Default, will be overwritten by JS */
+        --heart-color: red; 
 
         position: fixed;
-        top: 40%;
+        top: 65%;
         left: 50%;
         width: var(--heart-size);
         height: var(--heart-size);
@@ -78,7 +77,6 @@
         }
       }
 
-      /* Ensure content is above the heart */
       .content, #compliment {
         position: relative;
         z-index: 1;
@@ -112,17 +110,14 @@
         "#5E0040" // straight up whore pink
       ];
 
-      // Random background color
       const randomColour =
         lustyColours[Math.floor(Math.random() * lustyColours.length)];
       document.body.style.backgroundColor = randomColour;
 
-      // Random heart color
       const heartColour =
         happyColours[Math.floor(Math.random() * happyColours.length)];
       document.querySelector('.heart-background').style.setProperty('--heart-color', heartColour);
 
-      // Load compliments from file
       fetch("feeling good.txt")
         .then(response => response.text())
         .then(text => {
