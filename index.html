@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flert</title>
-    <link rel="icon" type="image/x-icon" href="/thirst.ico" href="can you fucking work.css">
+    <link rel="icon" type="image/x-icon" href="/thirst.ico">
+
     <style>
       @font-face {
         font-family: "SPEED AND POWER";
@@ -15,37 +16,63 @@
 
       body {
         margin: 0;
-        height: 100svh;
+        height: 100vh; /* Use 100vh instead of 100svh for compatibility */
         display: flex;
         justify-content: center;
         align-items: center;
-
         font-family: "SPEED AND POWER", sans-serif;
         font-size: 5rem;
         text-align: center;
         color: #000000;
         transition: background-color 0.5s ease;
       }
+
+      /* Heart background */
+      .heart-background {
+        position: fixed;      /* Stay behind content */
+        top: 50%;
+        left: 50%;
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        clip-path: polygon(50% 0%, 0% 40%, 50% 100%, 100% 40%); /* heart shape */
+        transform: translate(-50%, -50%);
+        z-index: 0;           /* Behind content */
+        animation: pulse 1.5s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: translate(-50%, -50%) scale(1);
+        }
+        50% {
+          transform: translate(-50%, -50%) scale(1.1);
+        }
+        100% {
+          transform: translate(-50%, -50%) scale(1);
+        }
+      }
+
+      /* Make sure content is above the heart */
+      .content, #compliment {
+        position: relative;
+        z-index: 1;
+      }
     </style>
   </head>
   <body>
-	<div class="heart-background"></div>
-	<div class="content">
-	</div>
-	  
-    <div id="compliment">
-      Loading…
-    </div>
+    <div class="heart-background"></div>
+    <div class="content"></div>
+    <div id="compliment">Loading…</div>
 
     <script>
       const happyColours = [
-		"#E300ED", // hot pink
-		"#FF002D", // sexy red
-		"#FF006F", // kinky salmon
-		"#B200DE", // devious purple
-		"#FF1C78", // slutty pink
-		"#6300BD" // straight up whore purple
-				
+        "#E300ED", // hot pink
+        "#FF002D", // sexy red
+        "#FF006F", // kinky salmon
+        "#B200DE", // devious purple
+        "#FF1C78", // slutty pink
+        "#6300BD" // straight up whore purple
       ];
 
       const randomColour =
@@ -67,8 +94,7 @@
           document.getElementById("compliment").textContent = randomCompliment;
         })
         .catch(error => {
-          document.getElementById("compliment").textContent =
-            "Nice ass";
+          document.getElementById("compliment").textContent = "Nice ass";
           console.error(error);
         });
     </script>
