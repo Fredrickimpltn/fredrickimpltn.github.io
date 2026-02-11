@@ -30,25 +30,26 @@
 
       /* Heart background */
       .heart-background {
+        --heart-color: red; /* default color, will be overridden by JS */
         position: fixed;
         top: 50%;
         left: 50%;
-        width: 300px;
-        height: 270px;
-        background-color: red;
+        width: 100px;
+        height: 90px;
+        background-color: var(--heart-color);
         transform: translate(-50%, -50%) rotate(-45deg);
         z-index: 0;
         animation: pulse 1.5s ease-in-out infinite;
       }
 
-      /* Create the top lobes of the heart */
+      /* Top lobes of the heart */
       .heart-background::before,
       .heart-background::after {
         content: "";
         position: absolute;
-        width: 300px;
-        height: 270px;
-        background-color: red;
+        width: 100px;
+        height: 90px;
+        background-color: var(--heart-color);
         border-radius: 50%;
       }
 
@@ -91,19 +92,25 @@
 
     <script>
       const happyColours = [
-        "#E300ED",
-        "#FF002D",
-        "#FF006F",
-        "#B200DE",
-        "#FF1C78",
-        "#6300BD"
+        "#E300ED", // hot pink
+        "#FF002D", // red
+        "#FF006F", // salmon
+        "#B200DE", // purple
+        "#FF1C78", // pink
+        "#6300BD"  // dark purple
       ];
 
+      // Random background color
       const randomColour =
         happyColours[Math.floor(Math.random() * happyColours.length)];
-
       document.body.style.backgroundColor = randomColour;
 
+      // Random heart color
+      const heartColour =
+        happyColours[Math.floor(Math.random() * happyColours.length)];
+      document.querySelector('.heart-background').style.setProperty('--heart-color', heartColour);
+
+      // Load compliments from file
       fetch("feeling good.txt")
         .then(response => response.text())
         .then(text => {
