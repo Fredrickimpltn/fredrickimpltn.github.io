@@ -118,6 +118,17 @@
         happyColours[Math.floor(Math.random() * happyColours.length)];
       document.querySelector('.heart-background').style.setProperty('--heart-color', heartColour);
 
+      function fitText() {
+        const el = document.getElementById("compliment");
+        let size = 80; // starting size in px
+        el.style.fontSize = size + "px";
+        
+        while (el.scrollHeight > window.innerHeight * 0.9) {
+          size--;
+          el.style.fontSize = size + "px";
+        }
+      }
+
       fetch("feeling good.txt")
         .then(response => response.text())
         .then(text => {
