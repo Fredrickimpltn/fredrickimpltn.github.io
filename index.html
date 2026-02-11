@@ -9,7 +9,7 @@
     <style>
       @font-face {
         font-family: "SPEED AND POWER";
-        src: url("fonts/Eleanora.otf") format("otf");
+        src: url("fonts/TuslavDemo-Regular.woff2") format("woff2");
         font-weight: normal;
         font-style: normal;
       }
@@ -28,12 +28,12 @@
         overflow: hidden;
       }
 
-      /* Scalable heart background */
+      /* Scalable heart background (center) */
       .heart-background {
-        --heart-size: 300px; /* Change this to scale the heart */
+        --heart-size: 150px; /* Change this to scale the heart */
         --lobe-offset: calc(var(--heart-size) * 0.5); /* Half the size for positioning lobes */
 
-        --heart-color: red; /* Default, will be overwritten by JS */
+        --heart-color: red; /* Default color, will be overwritten by JS */
 
         position: fixed;
         top: 50%;
@@ -78,10 +78,54 @@
         }
       }
 
+      /* Floating hearts */
+      .floating-heart {
+        position: fixed;
+        bottom: 0;
+        width: 30px; /* will randomize with JS */
+        height: 30px;
+        background-color: red; /* will randomize with JS */
+        transform: rotate(-45deg);
+        z-index: 1;
+        pointer-events: none; /* so it doesn't block clicks */
+        animation: floatUp linear forwards;
+      }
+
+      .floating-heart::before,
+      .floating-heart::after {
+        content: "";
+        position: absolute;
+        width: 30px; /* same as parent, randomize with JS */
+        height: 30px;
+        background-color: inherit;
+        border-radius: 50%;
+      }
+
+      .floating-heart::before {
+        top: -15px;
+        left: 0;
+      }
+
+      .floating-heart::after {
+        top: 0;
+        left: 15px;
+      }
+
+      @keyframes floatUp {
+        0% {
+          transform: translateX(0) translateY(0) rotate(-45deg) scale(1);
+          opacity: 1;
+        }
+        100% {
+          transform: translateX(var(--x-offset, 0px)) translateY(-500px) rotate(-45deg) scale(1.2);
+          opacity: 0;
+        }
+      }
+
       /* Ensure content is above the heart */
       .content, #compliment {
         position: relative;
-        z-index: 1;
+        z-index: 2;
       }
     </style>
   </head>
@@ -94,33 +138,61 @@
     <div id="compliment">Loading…</div>
 
     <script>
-      const happyColours = [
+      // Color arrays for background and heart
+      const backgroundColours = [
         "#E300ED", // hot pink
-        "#FF002D", // sexy red
-        "#FF006F", // kinky salmon
-        "#B200DE", // devious purple
-        "#FF1C78", // bitchy pink
-        "#6300BD"  // flirty purple
-      ];
-        
-      const lustyColours = [
-        "#5C0000", // dirty red
-        "#29005C", // naughty purple
-        "#34004A", // down bad purple
-        "#4A0040", // orgasmic pink
-        "#4A0029", // slutty pink
-        "#5E0040" // straight up whore pink
+        "#FF002D", // red
+        "#FF006F", // salmon
+        "#B200DE", // purple
+        "#FF1C78", // pink
+        "#6300BD"  // dark purple
       ];
 
-      // Random background color
-      const randomColour =
-        lustyColours[Math.floor(Math.random() * lustyColours.length)];
-      document.body.style.backgroundColor = randomColour;
+      const heartColours = [
+        "#FF6347", // tomato
+        "#32CD32", // lime green
+        "#FFD700", // gold
+        "#FF1493", // deep pink
+        "#8A2BE2", // blue violet
+        "#DC143C"  // crimson
+      ];
 
-      // Random heart color
-      const heartColour =
-        happyColours[Math.floor(Math.random() * happyColours.length)];
-      document.querySelector('.heart-background').style.setProperty('--heart-color', heartColour);
+      // Random background color from backgroundColours array
+      const randomBackgroundColour =
+        backgroundColours[Math.floor(Math.random() * backgroundColours.length)];
+      document.body.style.backgroundColor = randomBackgroundColour;
+
+      // Random heart color from heartColours array
+      const randomHeartColour =
+        heartColours[Math.floor(Math.random() * heartColours.length)];
+      document.querySelector('.heart-background').style.setProperty('--heart-color', randomHeartColour);
+
+      // Create floating hearts
+      const heartColors = ["#FF6347", "#32CD32", "#FFD700", "#FF1493", "#8A2BE2"];
+      
+      function createFloatingHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("floating-heart");
+
+        // Random size
+        const size = Math.random() * 40 + 20; // 20px to 60px
+        heart.style.width = `${size}px`;
+        heart.style.height = `${size}px`;
+        heart.style.setProperty("--x-offset", `${Math.random() * 100 - 50}px`); // drift left/right
+
+        // Random color
+        const color = heartColors[Math.floor(Math.random() * heartColors.length)];
+        heart.style.backgroundColor = color;
+
+        // Append to body
+        document.body.appendChild(heart);
+
+        // Remove after animation
+        heart.addEventListener("animationend", () => heart.remove());
+      }
+
+      // Create a new floating heart every 300ms
+      setInterval(createFloatingHeart, 300);
 
       // Load compliments from file
       fetch("feeling good.txt")
