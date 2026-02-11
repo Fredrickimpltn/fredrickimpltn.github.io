@@ -19,16 +19,50 @@
         display: flex;
         justify-content: center;
         align-items: center;
-
         font-family: "SPEED AND POWER", sans-serif;
         font-size: 5rem;
         text-align: center;
         color: #000000; 
         transition: background-color 0.5s ease;
+        position: relative; /* Allow positioning of heart shape */
+      }
+
+      /* Heart Shape in the background */
+      .heart-shape {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 300px;
+        height: 300px;
+        background-color: #e74c3c; /* Red color for the heart */
+        transform: rotate(45deg);
+        opacity: 0.3; /* Light opacity for background effect */
+        z-index: -1; /* Place the heart shape behind content */
+      }
+
+      .heart-shape:before,
+      .heart-shape:after {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color: #e74c3c;
+        border-radius: 50%;
+      }
+
+      .heart-shape:before {
+        left: 50px;
+        top: 0;
+      }
+
+      .heart-shape:after {
+        left: 0;
+        top: 50px;
       }
     </style>
   </head>
   <body>
+    <div class="heart-shape"></div> <!-- Heart shape in the background -->
     <div id="compliment">
       Loading…
     </div>
